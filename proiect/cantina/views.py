@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, UpdateView
@@ -5,7 +6,7 @@ from django.views.generic import CreateView, ListView, UpdateView
 from cantina.models import Cantina
 
 
-class CreateCantinaView(CreateView):
+class CreateCantinaView(LoginRequiredMixin, CreateView):
     model = Cantina
     template_name = 'forms.html'
     fields = ['denumire_produs', 'cantitate', 'pret_studenti']
@@ -14,12 +15,12 @@ class CreateCantinaView(CreateView):
         return reverse('cantina:lista_cantina')
 
 
-class CantinaView(ListView):
+class CantinaView(LoginRequiredMixin, ListView):
     model = Cantina
     template_name = 'cantina/cantina_index.html'
 
 
-class UpdateCantinaView(UpdateView):
+class UpdateCantinaView(LoginRequiredMixin, UpdateView):
     model = Cantina
     fields = ['denumire_produs', 'cantitate', 'pret_studenti']
     template_name = 'forms.html'

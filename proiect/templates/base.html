@@ -7,9 +7,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <nav>
-                <a class="btn" href="/admin/">Admin</a>
-            </nav>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                {% if request.user.is_authenticated %}
+                    <button type="submit">Log out</button>
+                {% endif %}
+            <a class="btn" href="/admin/">Admin</a>
+            </form>
         </div>
     </div>
 </div>
