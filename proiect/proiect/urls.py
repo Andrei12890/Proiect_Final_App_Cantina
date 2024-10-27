@@ -21,6 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cantina/', include('cantina.urls')),
+    path('livrari/', include('livrari.urls')),
     path('', include('django.contrib.auth.urls'), {'next_page': '/'}, name='login'),
     path('', LoginView.as_view(), name='login'),
 ]
