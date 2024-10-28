@@ -11,6 +11,8 @@
                 {% csrf_token %}
                 {% if request.user.is_authenticated %}
                     <button type="submit">Log out</button>
+                    <a class="btn" href="{% url 'cantina:lista_cantina' %}">Cantina</a>
+                    <a class="btn" href="{% url 'livrari:lista_livrari' %}">Livrari</a>
                 {% endif %}
             <a class="btn" href="/admin/">Admin</a>
             </form>

@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
-{% block content %}
-    <form method="POST">
-    {% csrf_token %}
-    <div class="col-md-2">
-        <div>
-            <label>Username</label>
-            <input name="username" class="form-control" type="text">
-        </div>
-        <div>
-            <label>Password</label>
-            <input name="password" class="form-control" type="password">
-        </div>
-        <br>
-        <div>
-            <button type="submit" class="btn btn-info">Log in</button>
-        </div>
+{% load static %}
 
+{% block content %}
+    <div>
+        <img src="{% static 'cantina/logo.png' %}" alt="Logo Cantina" class="img-fluid mb-4" style="max-width: 500px;">
+        <h1>Log in</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="col-md-2">
+                <div>
+                    <label>Username</label>
+                    <input name="username" class="form-control" type="text">
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input name="password" class="form-control" type="password">
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-info">Log in</button>
+                </div>
+            </div>
+        </form>
     </div>
-    </form>
 {% endblock %}

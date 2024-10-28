@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'livrari:adaugare_livrare' %}">Adăugare livrare</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Oraș</th>
+                <th>Adresa</th>
+                <th>Meniu</th>
+                <th>Oră</th>
+                <th>Preț</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in livrari_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.oras }}</td>
+                    <td>{{ item.adresa }}</td>
+                    <td>{{ item.meniu }}</td>
+                    <td>{{ item.ora }}</td>
+                    <td>{{ item.pret }}</td>
+                    <td>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
