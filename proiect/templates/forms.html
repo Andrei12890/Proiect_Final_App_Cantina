@@ -12,6 +12,8 @@
     <button type="submit" class="btn btn-success">Salvează</button>
     {% if 'adaugare' in request.path %}
         <a class="btn btn-info" href="{% url 'cantina:lista_cantina' %}">Înapoi</a>
+    {% elif 'editeaza' in request.path %}
+        <a class="btn btn-info" href="{% url 'cantina:lista_cantina' %}">Înapoi</a>
     {% endif %}
     </form>
     </div>
