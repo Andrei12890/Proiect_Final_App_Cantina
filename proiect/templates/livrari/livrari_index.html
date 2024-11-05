@@ -10,6 +10,7 @@
                 <th>Meniu</th>
                 <th>Oră</th>
                 <th>Preț</th>
+                <th>Comenzi</th>
                 <th>Acțiuni</th>
             </tr>
         </thead>
@@ -22,7 +23,19 @@
                     <td>{{ item.meniu }}</td>
                     <td>{{ item.ora }}</td>
                     <td>{{ item.pret }} RON</td>
+                    <td>{% if item.active is True %}
+                        Activă
+                        {% else %}
+                        Inactivă
+                        {% endif %}
+                    </td>
                     <td>
+                        <a class="btn btn-success" href="{% url 'livrari:editeaza' item.id %}">Editează</a>
+<!--                        {% if item.active is True %}-->
+<!--                        <a class="btn btn-danger" href="{% url 'livrari:anuleaza' item.id %}">Anulează</a>-->
+<!--                        {% else %}-->
+<!--                        <a class="btn btn-warning" href="{% url 'livrari:comanda' item.id %}">Comandă</a>-->
+<!--                        {% endif %}-->
                     </td>
                 </tr>
             {% endfor %}

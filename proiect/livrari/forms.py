@@ -17,3 +17,7 @@ class LivrariForm(forms.ModelForm):
             'ora': TimeInput(attrs={'class': 'form-control', 'placeholder': 'HH:MM'}, format='%H:%M'),
             'pret': TextInput(attrs={'placeholder': 'pret', 'class': 'form-control'})
         }
+
+    def __init__(self, *args, **kwargs):
+        super(LivrariForm, self).__init__(*args, **kwargs)
+        # self.pk = pk
